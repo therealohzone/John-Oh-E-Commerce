@@ -73,7 +73,9 @@ export const QUERY_BLOGS = gql`
 {
   blogs {
     _id
+    title
     text
     image
+    date
   }
 }`
