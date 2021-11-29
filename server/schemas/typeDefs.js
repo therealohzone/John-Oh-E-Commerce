@@ -8,8 +8,10 @@ const typeDefs = gql`
 
   type Blog {
     _id: ID
+    title: String
     text: String
     image: String
+    date: String
   }
 
   type Product {
@@ -52,6 +54,7 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    blogs: [Blog]
   }
 
   type Mutation {
