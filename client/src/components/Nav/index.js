@@ -47,7 +47,13 @@ function Nav() {
           -Shop-Shop
         </Link>
       </h1>
-
+      <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/blogs">
+              Blog Posts
+            </Link>
+          </li>
+      </ul>
       <nav>
         {showNavigation()}
       </nav>

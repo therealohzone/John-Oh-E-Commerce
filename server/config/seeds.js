@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Product, Category, Blog } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -104,6 +104,21 @@ db.once('open', async () => {
       }
     ]
   });
+
+
+await Blog.insertMany([
+    {
+      title: 'Making hooks',
+      text: "making hooks is easy!!!",
+      image:" hook.jpg"
+    },
+    {
+      title: "Casting line",
+      text: "pull back & releasing is the best way to get the line in the water",
+      image: "line.jpg"
+    }
+  ]);
+  console.log("Blogs seeded!");
 
   await User.create({
     firstName: 'Elijah',
