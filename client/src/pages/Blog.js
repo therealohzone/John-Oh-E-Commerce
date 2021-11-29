@@ -24,8 +24,8 @@ function BlogPage() {
                     </h4>
                     <div className="flex-row">
                         <img alt={`blog_id:${post._id}`} src={`images/${post.image}`}/>
-                        <text>{post.text}</text>
                     </div>
+                        <text>{post.text}</text>
                 </div>
             ))}
 
