@@ -8,8 +8,10 @@ const typeDefs = gql`
 
   type Blog {
     _id: ID
+    title: String
     text: String
     image: String
+    date: String
   }
 
   type Product {
