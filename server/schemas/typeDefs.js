@@ -6,6 +6,12 @@ const typeDefs = gql`
     name: String
   }
 
+  type Blog {
+    _id: ID
+    text: String
+    image: String
+  }
+
   type Product {
     _id: ID
     name: String
