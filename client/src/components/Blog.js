@@ -42,18 +42,20 @@ function BlogPage() {
 
             {state.blogs.length ? (
                 state.blogs.map((post) => {
-                    <div key={post._id} className="my-2">
-                        <h3>
-                            <Link to={`/blogs/${post._id}`}>{post.title}</Link>
-                        </h3>
-                        <h4>
-                            {new Date(parseInt(post.date)).toLocaleDateString()}
-                        </h4>
-                        <div className="flex-row">
-                            <img alt={`blog_id:${post._id}`} src={`images/${post.image}`} />
+                    return (
+                        <div key={post._id} className="my-2">
+                            <h3>
+                                <Link to={`/blogs/${post._id}`}>{post.title}</Link>
+                            </h3>
+                            <h4>
+                                {new Date(parseInt(post.date)).toLocaleDateString()}
+                            </h4>
+                            <div className="flex-row">
+                                <img alt={`blog_id:${post._id}`} src={`images/${post.image}`} />
+                            </div>
+                            <text>{post.text}</text>
                         </div>
-                        <text>{post.text}</text>
-                    </div>
+                    )
                 })) : (
                 <h4> no blogs added yet </h4>
             )}
