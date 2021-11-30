@@ -80,11 +80,13 @@ a:hover {
 }
 
 header {
-  background: var(--primary);
+  background: #ffffff;
+  height: 20vh;
+  align-items: center;
 }
 
 header a {
-  color: var(--light);
+  color: #000000;
 }
 
 button {
@@ -132,6 +134,13 @@ input {
 input:focus {
   border: 1px solid var(--secondary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+}
+
+.category{
+  display: flex;
+  align-items: center; 
+  background-color: #000000;
+  margin-right: 0%;
 }
 
 .container {
