@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Jquery from "jquery"
 import ProductList from "../components/ProductList";
 import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";

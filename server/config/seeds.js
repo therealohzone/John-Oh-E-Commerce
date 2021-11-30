@@ -110,12 +110,12 @@ await Blog.insertMany([
     {
       title: 'Making hooks',
       text: "making hooks is easy!!!",
-      image:" hook.jpg"
+      image:"mopfly.jpg"
     },
     {
       title: "Casting line",
       text: "pull back & releasing is the best way to get the line in the water",
-      image: "line.jpg"
+      image: "flybox1.jpg"
     }
   ]);
   console.log("Blogs seeded!");
