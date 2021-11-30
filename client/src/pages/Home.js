@@ -1,88 +1,45 @@
-import React from "react";
+import React, { Component } from 'react';
 import Jquery from "jquery"
 import ProductList from "../components/ProductList";
 import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
+import M from "materialize-css";
+import Carousel from "../Carousel";
+import ReactDOM from "react-dom";
+import "materialize-css/dist/css/materialize.min.css";
+
+
+
+
 const {useEffect, useRef, useState} = React;
 
-const Home = () => {
-  // var carousel = $(".carouselbox");
-  // // Selects buttons using their parent carousel element
-  // // var next = carousel.querySelector(".next");
-  // // var prev = carousel.querySelector(".prev");
-  // var index = 0;
-  // var currentImage;
-  var children = [
-    "https://picsum.photos/300/200",
-    "https://picsum.photos/300/201",
-    "https://picsum.photos/300/202",
-    "https://picsum.photos/300/203"
-  ];
-  // carousel.style.backgroundImage = "url('https://picsum.photos/300/200')";
-  // function navigate(direction) {
-  //   index = index + direction;
-  //   if (index < 0) {
-  //     index = images.length - 1;
-  //   } else if (index > images.length - 1) {
-  //     index = 0;
-  //   }
-  //   currentImage = images[index];
-  //   carousel.style.backgroundImage = "url('" + currentImage + "')";
-  // }
-  // carousel.addEventListener("click", function () {
-  //   window.location.href = images[index];
-  // });
-  // // next.addEventListener("click", function (event) {
-  // //   event.stopPropagation();
-  // //   navigate(1);
-  // // });
-  // // prev.addEventListener("click", function (event) {
-  // //   event.stopPropagation();
-  // //   navigate(-1);
-  // // });
-  // navigate(0);
-
-  const [activeSlide, setActiveSlide] = useState(0);
-  const activeSlideRef = useRef(null);
-
-  useEffect(() => {
-    if (activeSlideRef.current) {
-      activeSlideRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest'
-      });
-    }
-  }, [activeSlide]);
-
-  const moveLeft = Math.max(0, activeSlide - 1);
-  const moveRight = Math.min(children.length - 1, activeSlide + 1);
+function App() {
+  const { headingText } = styles;
 
   return (
     <div className="container">
-      <button onClick={() => setActiveSlide(moveLeft)}>PREV</button>
-      <div id="test">
-        {children.map((child, i) => {
-          const active = i === activeSlide;
-          return (
-            <div className={`slide ${active ? "active" : ""}`} ref={active ? activeSlideRef : null} id={`slide-${i}`} key={`slide-${i}`}>
-              {child}
-            </div>
-          );
-        })}
-      </div>
-
-      <button onClick={() => setActiveSlide(moveRight)}>NEXT</button>
-      {/* <div class="carouselbox" aria-role="img" aria-label="carousel">
-        <button class="prev">
-          ◀ Previous
-        </button>
-        <button class="next">
-          Next ▶
-        </button>
-      </div> */}
+      <h2 style={headingText} className="flow-text">
+        Carousel React Demo
+      </h2>
+      <p className="flow-text">
+        Learn how to use Materialize CSS framework in ReactJS
+      </p>
+      <Carousel />
     </div>
   );
+}
+
+const styles = {
+  headingText: {
+    fontSize: 50,
+    fontWeight: 300
+  }
 };
 
-export default Home;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+
+export default Carousel;
+
+  
+
