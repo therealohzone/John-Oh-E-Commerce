@@ -8,7 +8,8 @@ import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
-  TOGGLE_CART
+  TOGGLE_CART,
+  UPDATE_BLOGS
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -18,7 +19,11 @@ export const reducer = (state, action) => {
         ...state,
         products: [...action.products],
       };
-
+    case UPDATE_BLOGS:
+      return {
+        ...state,
+        blogs: [...action.blogs],
+      };
     case ADD_TO_CART:
       return {
         ...state,
