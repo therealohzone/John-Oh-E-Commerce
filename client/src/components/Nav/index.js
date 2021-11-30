@@ -49,6 +49,11 @@ function Nav() {
       </h1>
       <ul className="flex-row">
           <li className="mx-1">
+            <Link to="/products">
+              Products
+            </Link>
+          </li>
+          <li className="mx-1">
             <Link to="/blogs">
               Blog Posts
             </Link>
