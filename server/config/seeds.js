@@ -1,15 +1,13 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Product, Category, Blog } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Complete Fly Boxes' },
+    { name: 'Flies' },
+    { name: 'Custom Flies' }
   ]);
 
   console.log('categories seeded');
@@ -18,111 +16,76 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
-      name: 'Tin of Cookies',
+      name: 'Full Fly Box',
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+        'A fully loaded assortment that covers all of your nymph fishing bases from #20 midges to #8 stones and everything in between. Similar to the Pocket Box, the Fulling Mill Stealth Box contains most of my year round favorite patterns as well as a few more specialized patterns like perdigons and midges. I have fished these patterns all over the country with great success',
+      image: 'flybox1.jpg',
       category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
+      price: 375.00,
+      quantity: 5
     },
     {
-      name: 'Canned Coffee',
+      name: 'Half Fly Box',
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+        'A fully loaded assortment that covers all of your nymph fishing bases from #20 midges to #8 stones and everything in between. Similar to the Pocket Box, the Fulling Mill Stealth Box contains most of my year round favorite patterns as well as a few more specialized patterns like perdigons and midges.',
+      image: 'flybox2.jpg',
       category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
+      price: 199.00,
+      quantity: 5
     },
     {
-      name: 'Toilet Paper',
-      category: categories[1]._id,
+      name: 'Full Pocket Box',
+      category: categories[0]._id,
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
+        'This is a special selection to me. Prior to beginning this full time tying operation I took a 6 week road trip fishing up and down the east coast. During this trip I scaled my fly selection down to a small handful of patterns. Since that trip this group of flies have proven themselves all across the country and has become my core year round selection. Offered on half(36 flies) and full(72 flies) boxes. These are now housed in a Fulling Mill Pocket Box.',
+      image: 'flybox3.jpg',
+      price: 225.00,
       quantity: 20
     },
     {
-      name: 'Handmade Soap',
-      category: categories[1]._id,
+      name: 'Half Pocket Box',
+      category: categories[0]._id,
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
+        'This is a special selection to me. Prior to beginning this full time tying operation I took a 6 week road trip fishing up and down the east coast. During this trip I scaled my fly selection down to a small handful of patterns. Since that trip this group of flies have proven themselves all across the country and has become my core year round selection. Offered on half(36 flies) and full(72 flies) boxes. These are now housed in a Fulling Mill Pocket Box.',
+      image: 'flybox4.jpg',
+      price: 120.00,
+      quantity: 20
     },
     {
-      name: 'Set of Wooden Spoons',
+      name: 'Mop Fly (3)',
       category: categories[1]._id,
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
+        'Tied on #12 barbless jig hooks with 4mm black nickel tungsten beads',
+      image: 'mopfly.jpg',
       price: 14.99,
-      quantity: 100
+      quantity: 20
     },
     {
-      name: 'Camera',
-      category: categories[2]._id,
+      name: 'Zebra Midge (3)',
+      category: categories[1]._id,
       description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
+        'These are tied on Fasna jig hooks with 2mm tungsten beads and coated with solarez bonedry for added durability. ',
+      image: 'zebra.jpg',
+      price: 9.00,
+      quantity: 20
     },
     {
-      name: 'Tablet',
-      category: categories[2]._id,
+      name: 'Jigged Wooly Bugger (3)',
+      category: categories[1]._id,
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
+        'The UV ice dub adds some good flash and the cdc hackle provides tons of movement. I increase durability by over ribbing the cdc with tippet.',
+      image: 'woolybugger.jpg',
       price: 199.99,
-      quantity: 30
+      quantity: 20
     },
     {
-      name: 'Tales at Bedtime',
-      category: categories[3]._id,
+      name: 'Custom Fly',
+      category: categories[2]._id,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
-    },
-    {
-      name: 'Spinning Top',
-      category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
-      quantity: 1000
-    },
-    {
-      name: 'Set of Plastic Horses',
-      category: categories[4]._id,
-      description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
-      quantity: 1000
-    },
-    {
-      name: 'Teddy Bear',
-      category: categories[4]._id,
-      description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
-    },
-    {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
+        'Feel free to contact me with custom and bulk inquiries. Pricing and turnaround time varies. johnoh@usc.edu',
+      image: 'custom.jpg',
+      price: 0,
+      quantity: 0
     }
   ]);
 
@@ -141,6 +104,21 @@ db.once('open', async () => {
       }
     ]
   });
+
+
+await Blog.insertMany([
+    {
+      title: 'Making hooks',
+      text: "making hooks is easy!!!",
+      image:" hook.jpg"
+    },
+    {
+      title: "Casting line",
+      text: "pull back & releasing is the best way to get the line in the water",
+      image: "line.jpg"
+    }
+  ]);
+  console.log("Blogs seeded!");
 
   await User.create({
     firstName: 'Elijah',
