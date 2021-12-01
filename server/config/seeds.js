@@ -110,7 +110,7 @@ await Blog.insertMany([
     {
       title: 'Making hooks',
       text: "making hooks is easy!!!",
-      image:" hook.jpg"
+      image:"hook.jpg"
     },
     {
       title: "Casting line",
