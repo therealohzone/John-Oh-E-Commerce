@@ -57,7 +57,7 @@ db.once('open', async () => {
       description:
         'Tied on #12 barbless jig hooks with 4mm black nickel tungsten beads',
       image: 'mopfly.jpg',
-      price: 14.99,
+      price: 8.75,
       quantity: 20
     },
     {
@@ -75,7 +75,7 @@ db.once('open', async () => {
       description:
         'The UV ice dub adds some good flash and the cdc hackle provides tons of movement. I increase durability by over ribbing the cdc with tippet.',
       image: 'woolybugger.jpg',
-      price: 199.99,
+      price: 10.50,
       quantity: 20
     },
     {
